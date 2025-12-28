@@ -7,45 +7,93 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 const links = [
-  { href: "#work", text: "Work" },
-  { href: "#projects", text: "Projects" },
-  { href: "#education", text: "Education" },
-  { href: "#speaking", text: "Speaking" },
-  { href: "/system/overview", text: "Components" },
+  { href: "#work", text: "Get Sugared" },
+  { href: "#projects", text: "Learn Sugaring" }
 ];
 ---
 
-<nav class="bg-white dark:bg-base-950 fixed top-0 z-10 w-full">
-  <Wrapper variant="standard" class="py-2">
-    <div class="grid grid-cols-3 lg:grid-cols-4 items-start">
-      <a href="/" class="-mt-1 flex">
+<nav class="fixed top-0 z-10 w-full bg-transparent">
+  <Wrapper variant="standard" class="py-7">
+    <div class="relative flex items-center justify-center">
+      <a
+        href="/"
+        class="absolute left-0 top-1/2 -translate-y-1/2 flex"
+      >
         <Logo
-          class="text-base-600 dark:text-base-300 text-xs tracking-tight font-base-900"
+          class="text-base-600 dark:text-base-300 text-xs uppercase tracking-[5px] font-bold"
         />
       </a>
-      <Text
-        tag="p"
-        variant="textXS"
-        class="text-base-600 dark:text-base-300 tracking-tight font-base"
-      >
-        Munich, Germany
-      </Text>
-      <div class="hidden lg:flex gap-8 text-sm items-center">
+      <div class="hidden lg:flex items-center gap-10">
         {
           links.map((link) => (
             <a
               href={link.href}
-              class="text-base-600 dark:text-base-300  tracking-tight text-xs"
+              class="text-base-600 dark:text-base-300 text-xs uppercase tracking-[4px] font-bold border-b-2 border-transparent pb-1 transition-colors duration-300 hover:border-base-600 dark:hover:border-base-300"
             >
               {link.text}
             </a>
           ))
         }
       </div>
-      <a
-        class="text-base-600 dark:text-base-300 text-xs tracking-tight font-base ml-auto"
-        >Download
-      </a>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-6">
+        <button
+          class="flex flex-col items-end gap-1 text-base-600 dark:text-base-300"
+          type="button"
+          aria-label="Open menu"
+          data-menu-toggle
+        >
+          <span class="block h-[2px] w-6 bg-current"></span>
+          <span class="block h-[2px] w-4 bg-current"></span>
+        </button>
+      </div>
     </div>
   </Wrapper>
+  <div
+    class="pointer-events-none fixed inset-0 z-20 flex items-center justify-center bg-base-50/95 opacity-0 transition-opacity duration-300 dark:bg-base-950/95"
+    data-menu-overlay
+  >
+    <div class="text-center">
+      <div class="flex flex-col gap-6">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-base-700 dark:text-base-200 text-lg uppercase tracking-[6px] font-bold"
+            >
+              {link.text}
+            </a>
+          ))
+        }
+      </div>
+      <button
+        type="button"
+        class="mt-10 text-base-600 dark:text-base-300 text-xs uppercase tracking-[4px] font-bold"
+        data-menu-close
+      >
+        Close
+      </button>
+    </div>
+  </div>
 </nav>
+
+<script>
+  const toggle = document.querySelector("[data-menu-toggle]");
+  const close = document.querySelector("[data-menu-close]");
+  const overlay = document.querySelector("[data-menu-overlay]");
+
+  const openMenu = () => {
+    overlay?.classList.remove("opacity-0", "pointer-events-none");
+    overlay?.classList.add("opacity-100", "pointer-events-auto");
+  };
+
+  const closeMenu = () => {
+    overlay?.classList.add("opacity-0", "pointer-events-none");
+    overlay?.classList.remove("opacity-100", "pointer-events-auto");
+  };
+
+  toggle?.addEventListener("click", openMenu);
+  close?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", (event) => {
+    if (event.target === overlay) closeMenu();
+  });
+</script>
