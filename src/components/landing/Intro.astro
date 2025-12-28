@@ -3,45 +3,24 @@
 import { Image } from "astro:assets";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import yanaPhoto from "@/images/portrait-confident-young-woman-smiling.jpg";
+import yanaPhoto from "@/images/sugaring.jpg";
+import arrowIcon from "@/images/right-arrow.png";
 ---
 
 <section>
-  <Wrapper variant="standard" class="pb-8 pt-40 lg:pt-80">
+  <Wrapper variant="standard" class="pb-8 pt-24 lg:pt-80">
     <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
 
-      <Text
-        tag="h1"
-        variant="displayLG"
-        class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white lg:col-start-3"
-      >
-        Yana Smolnitchi. Sugaring expert, Munich. Client treatments. Professional training. Services and courses with intent.
-      </Text>
+      <Image
+        src={yanaPhoto}
+        alt="Yana Smolnitchi"
+        class="size-full aspect-4/5 rounded-2xl object-cover object-center lg:aspect-3/2"
+        loading="lazy"
+        decoding="async"
+      />
 
-      <div class="lg:col-span-2">
-        <Image
-          src={yanaPhoto}
-          alt="Yana Smolnitchi"
-          class="size-full aspect-3/2 rounded-4xl object-cover object-center"
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="mt-6 flex flex-col gap-3">
-          <a
-            href="/sugaring"
-            class="inline-flex w-full items-center justify-center rounded-4xl border border-base-300 px-5 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
-          >
-            Sugaring
-          </a>
-          <a
-            href="/courses"
-            class="inline-flex w-full items-center justify-center rounded-4xl border border-base-300 px-5 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
-          >
-            Courses
-          </a>
-        </div>
-        <div
-          class="mt-6 overflow-hidden rounded-4xl bg-white/70 py-3 text-xs uppercase tracking-[3px] text-base-700 dark:bg-base-950/70 dark:text-base-200"
+      <div
+          class="overflow-hidden rounded-4xl bg-white/70 py-3 text-sm uppercase tracking-[3px] text-base-700 dark:bg-base-950/70 dark:text-base-200"
         >
           <div class="flex min-w-full animate-marquee gap-8 whitespace-nowrap px-6">
             <span>
@@ -54,6 +33,60 @@ import yanaPhoto from "@/images/portrait-confident-young-woman-smiling.jpg";
             </span>
           </div>
         </div>
+
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="font-semibold leading-tight text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white lg:col-start-3"
+      >
+        Yana Smolnitchi. Sugaring expert, Munich. Client treatments. Professional training. Services and courses with intent.
+      </Text>
+
+      <div class="lg:col-span-2">
+        <div class="flex flex-col gap-3">
+          <a
+            href="/sugaring"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-light uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
+          >
+            Get Sugared
+            <Image
+              src={arrowIcon}
+              alt=""
+              width={14}
+              height={14}
+              class="inline-block h-3.5 w-3.5"
+              aria-hidden="true"
+            />
+          </a>
+          <a
+            href="/courses"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-light uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
+          >
+            Learn Sugaring
+            <Image
+              src={arrowIcon}
+              alt=""
+              width={14}
+              height={14}
+              class="inline-block h-3.5 w-3.5"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
+        <!--div
+          class="mt-8 overflow-hidden rounded-4xl bg-white/70 py-3 text-sm uppercase tracking-[3px] text-base-700 dark:bg-base-950/70 dark:text-base-200"
+        >
+          <div class="flex min-w-full animate-marquee gap-8 whitespace-nowrap px-6">
+            <span>
+              Sugar Rituals • Skin-Soft Results • Munich Atelier •
+              Professional Training •
+            </span>
+            <span>
+              Sugar Rituals • Skin-Soft Results • Munich Atelier •
+              Professional Training •
+            </span>
+          </div>
+        </div-->
       </div>
     </div>
     
