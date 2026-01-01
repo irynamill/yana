@@ -7,6 +7,162 @@ import courseHero from "@/images/portrait-confident-young-woman-smiling.jpg";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+export const prerender = false;
+const lang = Astro.url.searchParams.get("lang") ?? "en";
+const translations = {
+  en: {
+    heroTitle:
+      "Learn sugaring in Munich. Beginner-friendly, hands-on, and built for confident results.",
+    bookCourse: "Book a course",
+    viewProgram: "View program",
+    courseLabel: "Course",
+    courseTitle: "Two-day sugaring course",
+    courseIntro:
+      "Sugar paste + hot wax. Core theory with intensive hands-on practice on models. A confident start for beginners who want real results.",
+    day1Title: "Day 1 — build the foundation",
+    day1Body:
+      "Master the basics: skin structure, hair types, growth phases, product selection, preparation, and aftercare. Learn contraindications and how to avoid the most common mistakes.",
+    day1Practice:
+      "Hands-on practice: full legs, full arms, and underarms with guided technique correction.",
+    day2Title: "Day 2 — become confident in advanced areas",
+    day2Body:
+      "Full practice: Brazilian and facial areas (upper lip, chin, cheeks). Focus on speed, precision, and client comfort.",
+    day2Included:
+      "Included: post-training support, certificate of completion, and a clear path to start earning. €600 (individual).",
+    whoLabel: "Who it’s for",
+    whoTitle: "For beginners who want to become confident professionals.",
+    whoBegTitle: "Beginners",
+    whoBegBody:
+      "Start from zero and build confident technique with supervised practice.",
+    whoUpTitle: "Up-skill",
+    whoUpBody:
+      "Refine speed, precision, and client comfort with advanced tips.",
+    whoGroupTitle: "Small groups",
+    whoGroupBody:
+      "Individual or small-group formats for focused attention.",
+    bookingLabel: "Booking",
+    bookingTitle: "Ready to learn? Reserve your spot.",
+    formatLabel: "Format",
+    formatBody: "Individual or small group",
+    locationLabel: "Location",
+    contactLabel: "Contact",
+    mapNotice: "Map is disabled until you accept cookies.",
+    enableMap: "Enable map",
+  },
+  de: {
+    heroTitle:
+      "Sugaring lernen in München. Anfängerfreundlich, praxisnah und sicher im Ergebnis.",
+    bookCourse: "Kurs buchen",
+    viewProgram: "Programm ansehen",
+    courseLabel: "Kurs",
+    courseTitle: "Zweitägiger Sugaring-Kurs",
+    courseIntro:
+      "Zuckerpaste + Heißwachs. Theorie mit intensiver Praxis an Modellen. Der sichere Einstieg für Anfängerinnen.",
+    day1Title: "Tag 1 — Grundlagen aufbauen",
+    day1Body:
+      "Basics: Hautstruktur, Haartypen, Wachstumsphasen, Produktauswahl, Vorbereitung und Pflege. Kontraindikationen und typische Fehler vermeiden.",
+    day1Practice:
+      "Praxis: Beine komplett, Arme komplett und Achseln mit Korrektur.",
+    day2Title: "Tag 2 — Sicherheit in sensiblen Zonen",
+    day2Body:
+      "Praxis: Brazilian und Gesicht (Oberlippe, Kinn, Wangen). Fokus auf Tempo, Präzision und Komfort.",
+    day2Included:
+      "Inklusive: individuelle Betreuung nach dem Training, Zertifikat, klarer Start in den Beruf. 600 € (Einzel).",
+    whoLabel: "Für wen",
+    whoTitle: "Für Anfängerinnen, die sicher starten wollen.",
+    whoBegTitle: "Einsteigerinnen",
+    whoBegBody:
+      "Von null starten und Technik mit Begleitung aufbauen.",
+    whoUpTitle: "Weiterbildung",
+    whoUpBody:
+      "Tempo, Präzision und Kundenkomfort verbessern.",
+    whoGroupTitle: "Kleine Gruppen",
+    whoGroupBody:
+      "Einzel- oder Kleingruppenformat für Fokus.",
+    bookingLabel: "Buchung",
+    bookingTitle: "Bereit zu lernen? Platz sichern.",
+    formatLabel: "Format",
+    formatBody: "Einzel oder Kleingruppe",
+    locationLabel: "Adresse",
+    contactLabel: "Kontakt",
+    mapNotice: "Die Karte ist deaktiviert, bis Cookies akzeptiert werden.",
+    enableMap: "Karte laden",
+  },
+  ru: {
+    heroTitle:
+      "Обучение шугарингу в Мюнхене. Для начинающих, с практикой и уверенным результатом.",
+    bookCourse: "Записаться на курс",
+    viewProgram: "Программа",
+    courseLabel: "Курс",
+    courseTitle: "Двухдневный курс по шугарингу",
+    courseIntro:
+      "Сахарная паста + горячий воск. Теория и интенсивная практика на моделях. Уверенный старт для новичков.",
+    day1Title: "День 1 — база и практика",
+    day1Body:
+      "Основы: кожа, типы волос, фазы роста, материалы, подготовка и уход. Противопоказания и типичные ошибки.",
+    day1Practice:
+      "Практика: ноги полностью, руки полностью, подмышки с коррекцией техники.",
+    day2Title: "День 2 — уверенность в сложных зонах",
+    day2Body:
+      "Практика: глубокое бикини и лицо (губа, подбородок, щёки). Скорость, точность, комфорт.",
+    day2Included:
+      "Включено: сопровождение после обучения, сертификат и план для старта. 600 € (индивидуально).",
+    whoLabel: "Для кого",
+    whoTitle: "Для новичков, которые хотят уверенно стартовать.",
+    whoBegTitle: "Новички",
+    whoBegBody: "Старт с нуля и уверенная техника под контролем.",
+    whoUpTitle: "Повышение",
+    whoUpBody: "Больше скорости, точности и комфорта клиента.",
+    whoGroupTitle: "Малые группы",
+    whoGroupBody: "Индивидуально или в малой группе.",
+    bookingLabel: "Запись",
+    bookingTitle: "Готовы учиться? Забронируйте место.",
+    formatLabel: "Формат",
+    formatBody: "Индивидуально или в группе",
+    locationLabel: "Адрес",
+    contactLabel: "Контакты",
+    mapNotice: "Карта недоступна без согласия на cookies.",
+    enableMap: "Показать карту",
+  },
+  uk: {
+    heroTitle:
+      "Навчання шугарингу в Мюнхені. Для початківців, з практикою та впевненим результатом.",
+    bookCourse: "Записатися на курс",
+    viewProgram: "Програма",
+    courseLabel: "Курс",
+    courseTitle: "Дводенний курс з шугарингу",
+    courseIntro:
+      "Цукрова паста + гарячий віск. Теорія та інтенсивна практика на моделях. Впевнений старт для новачків.",
+    day1Title: "День 1 — база та практика",
+    day1Body:
+      "Основи: шкіра, типи волосся, фази росту, матеріали, підготовка та догляд. Протипоказання і типові помилки.",
+    day1Practice:
+      "Практика: ноги повністю, руки повністю, пахви з корекцією техніки.",
+    day2Title: "День 2 — впевненість у складних зонах",
+    day2Body:
+      "Практика: бразильське бікіні та обличчя (губа, підборіддя, щоки). Швидкість, точність, комфорт.",
+    day2Included:
+      "У вартість входить: супровід після навчання, сертифікат та план старту. 600 € (індивідуально).",
+    whoLabel: "Для кого",
+    whoTitle: "Для початківців, які хочуть впевнено стартувати.",
+    whoBegTitle: "Новачки",
+    whoBegBody: "Старт з нуля та техніка під контролем.",
+    whoUpTitle: "Підвищення",
+    whoUpBody: "Більше швидкості, точності та комфорту клієнта.",
+    whoGroupTitle: "Малі групи",
+    whoGroupBody: "Індивідуально або в малій групі.",
+    bookingLabel: "Запис",
+    bookingTitle: "Готові вчитися? Забронюйте місце.",
+    formatLabel: "Формат",
+    formatBody: "Індивідуально або група",
+    locationLabel: "Адреса",
+    contactLabel: "Контакти",
+    mapNotice: "Карта недоступна без згоди на cookies.",
+    enableMap: "Показати карту",
+  },
+};
+const t = (key) => translations[lang]?.[key] ?? translations.en[key];
 ---
 
 <BaseLayout>
@@ -28,24 +184,23 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             variant="displayLG"
             class="font-semibold leading-tight text-left tracking-tighter text-base-900 dark:text-white"
           >
-            Learn sugaring in Munich. Beginner-friendly, hands-on, and built for
-            confident results.
+          {t("heroTitle")}
           </Text>
           <div class="mt-6 flex flex-col gap-3">
             <a
-              href="/courses#book"
-              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
+              href={`/courses?lang=${lang}#book`}
+              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-base-900 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-white transition-all hover:bg-base-800 dark:bg-base-100 dark:text-base-950 dark:hover:bg-base-200"
             >
-              Book a course
+              {t("bookCourse")}
               <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
                 >→</span
               >
             </a>
             <a
-              href="/courses#program"
+              href={`/courses?lang=${lang}#program`}
               class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
             >
-              View program
+              {t("viewProgram")}
               <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
                 >→</span
               >
@@ -60,62 +215,43 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Course ]
+          [ {t("courseLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Two-day sugaring course
+          {t("courseTitle")}
         </Text>
 
         <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
           <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300 lg:col-span-2">
-            Sugar paste + hot wax. Core theory with intensive hands-on practice on
-            models. A confident start for beginners who want real results.
+            {t("courseIntro")}
           </Text>
         </div>
 
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:col-span-3 lg:col-start-2">
         <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
           <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-            Day 1 — theory + practice
+            {t("day1Title")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-            – skin structure and hair types
-            <br />
-            – growth phases and hair anatomy
-            <br />
-            – materials, techniques, prep, and aftercare
-            <br />
-            – contraindications and common mistakes to avoid
+            {t("day1Body")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-4 text-base-600 dark:text-base-300">
-            Practice:
-            <br />
-            – 2 models: full legs
-            <br />
-            – 2 models: full arms
-            <br />
-            – 2 models: underarms
+            {t("day1Practice")}
           </Text>
         </div>
         <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
           <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-            Day 2 — full practice
+            {t("day2Title")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-            – 2 models: Brazilian
-            <br />
-            – 2 models: face (upper lip, chin, cheeks, etc.)
+            {t("day2Body")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-4 text-base-600 dark:text-base-300">
-            индивидуальное сопровождение после обучения
-            <br />
-            сертификат по окончании курса
-            <br />
-            €600 (individual)
+            {t("day2Included")}
           </Text>
         </div>
       </div>
@@ -129,40 +265,39 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Who it’s for ]
+          [ {t("whoLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          For beginners who want to become confident professionals.
+          {t("whoTitle")}
         </Text>
 
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
         <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
           <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-            Beginners
+            {t("whoBegTitle")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-            Start from zero and build confident technique with supervised
-            practice.
+            {t("whoBegBody")}
           </Text>
         </div>
         <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
           <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-            Up-skill
+            {t("whoUpTitle")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-            Refine speed, precision, and client comfort with advanced tips.
+            {t("whoUpBody")}
           </Text>
         </div>
         <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
           <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-            Small groups
+            {t("whoGroupTitle")}
           </Text>
           <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-            Individual or small-group formats for focused attention.
+            {t("whoGroupBody")}
           </Text>
         </div>
       </div>
@@ -175,14 +310,14 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Booking ]
+          [ {t("bookingLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Ready to learn? Reserve your spot.
+          {t("bookingTitle")}
         </Text>
 
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
@@ -193,13 +328,13 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           >
             <div class="flex h-72 w-full items-center justify-center bg-base-100 px-6 text-center text-sm text-base-600 dark:bg-base-900 dark:text-base-300">
               <div class="flex flex-col gap-3">
-                <p>Map is disabled until you accept cookies.</p>
+              <p>{t("mapNotice")}</p>
                 <button
                   class="rounded-2xl border border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
                   type="button"
                   data-consent-open
                 >
-                  Enable map
+                  {t("enableMap")}
                 </button>
               </div>
             </div>
@@ -207,15 +342,15 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           <div class="flex flex-col gap-6">
             <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
               <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-                Format
+                {t("formatLabel")}
               </Text>
               <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
-                Individual or small group
+                {t("formatBody")}
               </Text>
             </div>
             <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
               <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-                Location
+                {t("locationLabel")}
               </Text>
               <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
                 Wirtstraße 34a, Obergiesing, 81539 München
@@ -223,7 +358,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             </div>
             <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
               <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-                Contact
+                {t("contactLabel")}
               </Text>
               <div class="mt-3 flex flex-col gap-3">
                 <a

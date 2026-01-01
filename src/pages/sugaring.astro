@@ -13,6 +13,258 @@ import beforeThree from "@/images/b-before.jpeg";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+export const prerender = false;
+const lang = Astro.url.searchParams.get("lang") ?? "en";
+const translations = {
+  en: {
+    heroTitle:
+      "Sugaring in Munich. Gentle hair removal, smooth skin, and calm care with intent.",
+    bookSlot: "Book a slot",
+    viewPricing: "View pricing",
+    aboutLabel: "About me",
+    aboutTitle:
+      "Yana Smolnitchi. A calm, precise approach to sugaring that keeps skin smooth and clients comfortable.",
+    aboutBody:
+      "I focus on gentle technique, clean ingredients, and a quiet, elevated studio experience. Every appointment is tailored to your skin and comfort level.",
+    pricingLabel: "Services and pricing",
+    pricingTitle: "Clear pricing for the most requested services.",
+    services: [
+      { label: "Full legs", price: "€65" },
+      { label: "Lower legs", price: "€45" },
+      { label: "Bikini", price: "€35" },
+      { label: "Brazilian", price: "€55" },
+      { label: "Underarms", price: "€25" },
+    ],
+    pricingNote:
+      "Final price may vary by area and hair length. Ask for a custom quote. All prices include VAT unless stated otherwise.",
+    cancelNote:
+      "Please cancel at least 24 hours in advance to avoid a late cancellation fee.",
+    reviewsLabel: "Reviews",
+    reviewsTitle: "Clients return for gentle technique and lasting results.",
+    reviews: [
+      "Beautiful space, very gentle technique, and smooth results for weeks.",
+      "Professional, calm, and precise. I always feel comfortable here.",
+      "Best sugaring experience in Munich. Clean, quick, and caring.",
+    ],
+    beforeAfterLabel: "Before / After",
+    beforeAfterTitle:
+      "Subtle, clean results. Smooth skin with a natural finish.",
+    faqLabel: "FAQ",
+    faqTitle: "Common questions about sugaring.",
+    faq: [
+      {
+        q: "How long should hair be?",
+        a: "About a grain of rice length. Usually 2–3 weeks of growth.",
+      },
+      {
+        q: "Is sugaring painful?",
+        a: "Most clients find it gentler than waxing, especially with regular visits.",
+      },
+      {
+        q: "How long do results last?",
+        a: "Typically 3–5 weeks depending on hair growth cycle.",
+      },
+      {
+        q: "Can I book online?",
+        a: "Yes, use the booking button to reserve your slot.",
+      },
+    ],
+    contactLabel: "Contact",
+    contactTitle: "Book online or reach out for questions.",
+    mapNotice: "Map is disabled until you accept cookies.",
+    enableMap: "Enable map",
+    locationLabel: "Location",
+    contactCard: "Contact",
+    hoursLabel: "Hours",
+    hours: "Tue - Sat, 10:00 - 19:00",
+  },
+  de: {
+    heroTitle:
+      "Sugaring in München. Sanfte Haarentfernung, glatte Haut und ruhige Pflege mit Anspruch.",
+    bookSlot: "Termin buchen",
+    viewPricing: "Preise ansehen",
+    aboutLabel: "Über mich",
+    aboutTitle:
+      "Yana Smolnitchi. Ein ruhiger, präziser Ansatz für glatte Haut und entspannte Kundinnen.",
+    aboutBody:
+      "Ich arbeite mit sanfter Technik, sauberen Produkten und einer ruhigen Studio-Atmosphäre. Jede Behandlung ist auf Haut und Komfort abgestimmt.",
+    pricingLabel: "Leistungen & Preise",
+    pricingTitle: "Klare Preise für die beliebtesten Behandlungen.",
+    services: [
+      { label: "Beine komplett", price: "€65" },
+      { label: "Unterschenkel", price: "€45" },
+      { label: "Bikini", price: "€35" },
+      { label: "Brazilian", price: "€55" },
+      { label: "Achseln", price: "€25" },
+    ],
+    pricingNote:
+      "Der Endpreis kann je nach Bereich und Haarlänge variieren. Fragen Sie nach einem Angebot. Alle Preise inkl. MwSt., sofern nicht anders angegeben.",
+    cancelNote:
+      "Bitte mindestens 24 Stunden vorher absagen, sonst fällt eine Ausfallgebühr an.",
+    reviewsLabel: "Bewertungen",
+    reviewsTitle: "Kundinnen kommen wegen der sanften Technik gerne wieder.",
+    reviews: [
+      "Wunderschöner Raum, sehr sanfte Technik und wochenlang glatte Haut.",
+      "Professionell, ruhig und präzise. Ich fühle mich immer wohl.",
+      "Beste Sugaring-Erfahrung in München. Sauber, schnell, fürsorglich.",
+    ],
+    beforeAfterLabel: "Vorher / Nachher",
+    beforeAfterTitle:
+      "Dezente, saubere Ergebnisse. Glatte Haut mit natürlichem Finish.",
+    faqLabel: "FAQ",
+    faqTitle: "Häufige Fragen zum Sugaring.",
+    faq: [
+      {
+        q: "Wie lang sollten die Haare sein?",
+        a: "Etwa Reiskornlänge. Meist 2–3 Wochen Wachstum.",
+      },
+      {
+        q: "Ist Sugaring schmerzhaft?",
+        a: "Viele empfinden es als sanfter als Waxing, besonders bei regelmäßigen Terminen.",
+      },
+      {
+        q: "Wie lange halten die Ergebnisse?",
+        a: "In der Regel 3–5 Wochen, je nach Haarwuchs.",
+      },
+      {
+        q: "Kann ich online buchen?",
+        a: "Ja, nutzen Sie die Buchung, um Ihren Termin zu reservieren.",
+      },
+    ],
+    contactLabel: "Kontakt",
+    contactTitle: "Online buchen oder Kontakt aufnehmen.",
+    mapNotice: "Die Karte ist deaktiviert, bis Cookies akzeptiert werden.",
+    enableMap: "Karte laden",
+    locationLabel: "Adresse",
+    contactCard: "Kontakt",
+    hoursLabel: "Öffnungszeiten",
+    hours: "Di - Sa, 10:00 - 19:00",
+  },
+  ru: {
+    heroTitle:
+      "Шугаринг в Мюнхене. Бережное удаление волос, гладкая кожа и спокойный уход.",
+    bookSlot: "Записаться",
+    viewPricing: "Смотреть цены",
+    aboutLabel: "Обо мне",
+    aboutTitle:
+      "Яна Смольнички. Спокойный и точный подход для гладкой кожи и комфорта клиента.",
+    aboutBody:
+      "Мягкая техника, чистые материалы и спокойная атмосфера студии. Каждая процедура подбирается под вашу кожу и комфорт.",
+    pricingLabel: "Услуги и цены",
+    pricingTitle: "Понятные цены на самые популярные услуги.",
+    services: [
+      { label: "Ноги полностью", price: "€65" },
+      { label: "Голени", price: "€45" },
+      { label: "Бикини", price: "€35" },
+      { label: "Глубокое бикини", price: "€55" },
+      { label: "Подмышки", price: "€25" },
+    ],
+    pricingNote:
+      "Итоговая цена может зависеть от зоны и длины волос. Уточните стоимость. Все цены включают НДС, если не указано иначе.",
+    cancelNote:
+      "Пожалуйста, отменяйте запись минимум за 24 часа, чтобы избежать штрафа.",
+    reviewsLabel: "Отзывы",
+    reviewsTitle: "Клиенты возвращаются за мягкой техникой и результатом.",
+    reviews: [
+      "Очень уютно, мягкая техника и гладкость на недели.",
+      "Профессионально, спокойно и точно. Всегда комфортно.",
+      "Лучший шугаринг в Мюнхене. Чисто, быстро, заботливо.",
+    ],
+    beforeAfterLabel: "До / После",
+    beforeAfterTitle: "Аккуратный результат и гладкая кожа.",
+    faqLabel: "FAQ",
+    faqTitle: "Частые вопросы о шугаринге.",
+    faq: [
+      {
+        q: "Какая длина волос нужна?",
+        a: "Примерно с рисовое зерно. Обычно 2–3 недели роста.",
+      },
+      {
+        q: "Больно ли это?",
+        a: "Чаще всего ощущается мягче, чем воск, особенно при регулярных процедурах.",
+      },
+      {
+        q: "Как долго держится эффект?",
+        a: "Обычно 3–5 недель в зависимости от роста волос.",
+      },
+      {
+        q: "Можно ли записаться онлайн?",
+        a: "Да, используйте кнопку записи, чтобы выбрать время.",
+      },
+    ],
+    contactLabel: "Контакты",
+    contactTitle: "Запись онлайн или вопросы по контактам.",
+    mapNotice: "Карта недоступна без согласия на cookies.",
+    enableMap: "Показать карту",
+    locationLabel: "Адрес",
+    contactCard: "Связь",
+    hoursLabel: "Часы",
+    hours: "Вт - Сб, 10:00 - 19:00",
+  },
+  uk: {
+    heroTitle:
+      "Шугаринг у Мюнхені. Делікатне видалення волосся, гладка шкіра та спокійний догляд.",
+    bookSlot: "Записатися",
+    viewPricing: "Дивитися ціни",
+    aboutLabel: "Про мене",
+    aboutTitle:
+      "Яна Смольніцькі. Спокійний і точний підхід для гладкої шкіри та комфорту клієнта.",
+    aboutBody:
+      "М’яка техніка, чисті матеріали та спокійна атмосфера студії. Кожна процедура підлаштована під вашу шкіру та комфорт.",
+    pricingLabel: "Послуги та ціни",
+    pricingTitle: "Зрозумілі ціни на найпопулярніші послуги.",
+    services: [
+      { label: "Ноги повністю", price: "€65" },
+      { label: "Гомілки", price: "€45" },
+      { label: "Бікіні", price: "€35" },
+      { label: "Бразильське бікіні", price: "€55" },
+      { label: "Пахви", price: "€25" },
+    ],
+    pricingNote:
+      "Кінцева ціна може залежати від зони та довжини волосся. Уточніть вартість. Усі ціни з ПДВ, якщо не зазначено інакше.",
+    cancelNote:
+      "Будь ласка, скасовуйте запис щонайменше за 24 години, щоб уникнути штрафу.",
+    reviewsLabel: "Відгуки",
+    reviewsTitle: "Клієнти повертаються за м’яку техніку та результат.",
+    reviews: [
+      "Дуже затишно, м’яка техніка і гладкість на тижні.",
+      "Професійно, спокійно і точно. Завжди комфортно.",
+      "Найкращий шугаринг у Мюнхені. Чисто, швидко, турботливо.",
+    ],
+    beforeAfterLabel: "До / Після",
+    beforeAfterTitle: "Акуратний результат та гладка шкіра.",
+    faqLabel: "FAQ",
+    faqTitle: "Часті питання про шугаринг.",
+    faq: [
+      {
+        q: "Яка потрібна довжина волосся?",
+        a: "Приблизно як рисове зерно. Зазвичай 2–3 тижні росту.",
+      },
+      {
+        q: "Чи боляче це?",
+        a: "Часто м’якше, ніж віск, особливо при регулярних процедурах.",
+      },
+      {
+        q: "Скільки тримається ефект?",
+        a: "Зазвичай 3–5 тижнів, залежно від росту волосся.",
+      },
+      {
+        q: "Чи можна записатися онлайн?",
+        a: "Так, скористайтеся кнопкою, щоб обрати час.",
+      },
+    ],
+    contactLabel: "Контакти",
+    contactTitle: "Запис онлайн або питання через контакти.",
+    mapNotice: "Карта недоступна без згоди на cookies.",
+    enableMap: "Показати карту",
+    locationLabel: "Адреса",
+    contactCard: "Зв’язок",
+    hoursLabel: "Години",
+    hours: "Вт - Сб, 10:00 - 19:00",
+  },
+};
+const t = (key) => translations[lang]?.[key] ?? translations.en[key];
 ---
 
 <BaseLayout>
@@ -34,26 +286,25 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             variant="displayLG"
             class="font-semibold leading-tight text-left tracking-tighter text-base-900 dark:text-white"
           >
-            Sugaring in Munich. Gentle hair removal, smooth skin, and calm care
-            with intent.
+          {t("heroTitle")}
           </Text>
           <div class="mt-6 flex flex-col gap-3">
             <a
               href="https://www.treatwell.de/ort/jana-lab-sugaring/"
-              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
+              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-base-900 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-white transition-all hover:bg-base-800 dark:bg-base-100 dark:text-base-950 dark:hover:bg-base-200"
               target="_blank"
               rel="noreferrer"
             >
-              Book a slot
+              {t("bookSlot")}
               <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
                 >→</span
               >
             </a>
             <a
-              href="/sugaring#pricing"
+              href={`/sugaring?lang=${lang}#pricing`}
               class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
             >
-              View pricing
+              {t("viewPricing")}
               <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
                 >→</span
               >
@@ -68,21 +319,18 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ About me ]
+          [ {t("aboutLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Yana Smolnitchi. A calm, precise approach to sugaring that keeps skin
-          smooth and clients comfortable.
+          {t("aboutTitle")}
         </Text>
 
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300 lg:col-span-3 lg:col-start-2">
-          I focus on gentle technique, clean ingredients, and a quiet, elevated
-          studio experience. Every appointment is tailored to your skin and
-          comfort level.
+          {t("aboutBody")}
         </Text>
 
       </div>
@@ -93,23 +341,17 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Services and pricing ]
+          [ {t("pricingLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Clear pricing for the most requested services.
+          {t("pricingTitle")}
         </Text>
         <div class="mt-10 divide-y divide-base-200 dark:divide-base-800 lg:col-span-3 lg:col-start-2">
-          {[
-            { label: "Full legs", price: "€65" },
-            { label: "Lower legs", price: "€45" },
-            { label: "Bikini", price: "€35" },
-            { label: "Brazilian", price: "€55" },
-            { label: "Underarms", price: "€25" },
-          ].map((item) => (
+          {t("services").map((item) => (
             <div class="flex items-center justify-between py-1">
               <Text tag="p" variant="textBase" class="text-base-900 dark:text-white">
                 {item.label}
@@ -124,16 +366,14 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             variant="textXS"
             class="pt-3 text-base-500 dark:text-base-400"
           >
-            Final price may vary by area and hair length. Ask for a custom quote.
-            All prices include VAT unless stated otherwise.
+            {t("pricingNote")}
           </Text>
           <Text
             tag="p"
             variant="textXS"
             class="pt-2 text-base-500 dark:text-base-400"
           >
-            Please cancel at least 24 hours in advance to avoid a late
-            cancellation fee.
+            {t("cancelNote")}
           </Text>
         </div>
       </div>
@@ -144,22 +384,18 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Reviews ]
+          [ {t("reviewsLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Clients return for gentle technique and lasting results.
+          {t("reviewsTitle")}
         </Text>
 
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
-        {[
-          "Beautiful space, very gentle technique, and smooth results for weeks.",
-          "Professional, calm, and precise. I always feel comfortable here.",
-          "Best sugaring experience in Munich. Clean, quick, and caring.",
-        ].map((quote) => (
+        {t("reviews").map((quote) => (
           <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
             <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
               “{quote}”
@@ -176,21 +412,21 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Before / After ]
+          [ {t("beforeAfterLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Subtle, clean results. Smooth skin with a natural finish.
+          {t("beforeAfterTitle")}
         </Text>
 
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
         {[
-          { before: beforeOne, after: afterOne, label: "Before / After" },
-          { before: beforeTwo, after: afterTwo, label: "Before / After" },
-          { before: beforeThree, after: afterThree, label: "Before / After" },
+          { before: beforeOne, after: afterOne, label: t("beforeAfterLabel") },
+          { before: beforeTwo, after: afterTwo, label: t("beforeAfterLabel") },
+          { before: beforeThree, after: afterThree, label: t("beforeAfterLabel") },
         ].map((item, index) => (
           <div class="overflow-hidden rounded-2xl border border-base-200 dark:border-base-800">
             <div class="compare" style="--pos: 50%;">
@@ -235,35 +471,18 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ FAQ ]
+          [ {t("faqLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Common questions about sugaring.
+          {t("faqTitle")}
         </Text>
 
         <div class="mt-10 grid grid-cols-1 gap-2 lg:grid-cols-2 lg:col-span-3 lg:col-start-2">
-        {[
-          {
-            q: "How long should hair be?",
-            a: "About a grain of rice length. Usually 2–3 weeks of growth.",
-          },
-          {
-            q: "Is sugaring painful?",
-            a: "Most clients find it gentler than waxing, especially with regular visits.",
-          },
-          {
-            q: "How long do results last?",
-            a: "Typically 3–5 weeks depending on hair growth cycle.",
-          },
-          {
-            q: "Can I book online?",
-            a: "Yes, use the booking button to reserve your slot.",
-          },
-        ].map((item) => (
+        {t("faq").map((item) => (
           <details class="group rounded-2xl border border-base-200 p-4 dark:border-base-800">
             <summary class="cursor-pointer list-none">
               <div class="flex items-center justify-between gap-4">
@@ -298,14 +517,14 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
     <Wrapper variant="standard" class="py-12 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
         <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          [ Contact ]
+          [ {t("contactLabel")} ]
         </Text>
         <Text
           tag="h2"
           variant="displayMD"
           class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
         >
-          Book online or reach out for questions.
+          {t("contactTitle")}
         </Text>
         
         <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
@@ -317,13 +536,13 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           >
             <div class="flex h-72 w-full items-center justify-center bg-base-100 px-6 text-center text-sm text-base-600 dark:bg-base-900 dark:text-base-300">
               <div class="flex flex-col gap-3">
-                <p>Map is disabled until you accept cookies.</p>
+                <p>{t("mapNotice")}</p>
                 <button
                   class="rounded-2xl border border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
                   type="button"
                   data-consent-open
                 >
-                  Enable map
+                  {t("enableMap")}
                 </button>
               </div>
             </div>
@@ -332,7 +551,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         <div class="flex flex-col gap-6">
           <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
               <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-                Location
+                {t("locationLabel")}
               </Text>
               <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
                 Wirtstraße 34a, Obergiesing, 81539 München
@@ -340,7 +559,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             </div>
           <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
             <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
-              Contact
+              {t("contactCard")}
             </Text>
             <div class="mt-3 flex flex-col gap-3">
               <a

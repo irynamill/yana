@@ -5,9 +5,18 @@ import Logo from "@/components/assets/Logo.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const lang = Astro.url.searchParams.get("lang") ?? "en";
+const translations = {
+  en: { impressum: "Imprint", privacy: "Privacy" },
+  de: { impressum: "Impressum", privacy: "Datenschutz" },
+  ru: { impressum: "Импрессум", privacy: "Политика конфиденциальности" },
+  uk: { impressum: "Імпресум", privacy: "Політика конфіденційності" },
+};
+const t = translations[lang] ?? translations.en;
 const links = [
-  { href: "/impressum", text: "Impressum" },
-  { href: "/datenschutz", text: "Datenschutz" }
+  { href: `/impressum?lang=${lang}`, text: t.impressum },
+  { href: `/datenschutz?lang=${lang}`, text: t.privacy },
 ];
 const year = new Date().getFullYear();
 ---

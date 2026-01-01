@@ -4,6 +4,35 @@ import BaseHead from "@/components/fundations/head/BaseHead.astro";
 // sections
 import Footer from "@/components/global/Footer.astro";
 import Navigation from "@/components/global/Navigation.astro";
+
+const lang = Astro.url.searchParams.get("lang") ?? "en";
+const translations = {
+  en: {
+    cookieText:
+      "We use cookies to improve your experience and enable third-party content. You can accept or decline.",
+    accept: "Accept",
+    decline: "Decline",
+  },
+  de: {
+    cookieText:
+      "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und Drittinhalte zu laden. Sie können zustimmen oder ablehnen.",
+    accept: "Akzeptieren",
+    decline: "Ablehnen",
+  },
+  ru: {
+    cookieText:
+      "Мы используем cookies для улучшения работы сайта и загрузки стороннего контента. Вы можете принять или отклонить.",
+    accept: "Принять",
+    decline: "Отклонить",
+  },
+  uk: {
+    cookieText:
+      "Ми використовуємо cookies для покращення роботи сайту та завантаження стороннього контенту. Ви можете прийняти або відхилити.",
+    accept: "Прийняти",
+    decline: "Відхилити",
+  },
+};
+const t = translations[lang] ?? translations.en;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -20,24 +49,21 @@ import Navigation from "@/components/global/Navigation.astro";
       hidden
     >
       <div class="flex flex-col gap-3">
-        <p>
-          We use cookies to improve your experience and enable third-party
-          content. You can accept or decline.
-        </p>
+        <p>{t.cookieText}</p>
         <div class="flex gap-3">
           <button
             class="rounded-2xl border border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
             data-cookie-accept
             type="button"
           >
-            Accept
+            {t.accept}
           </button>
           <button
             class="rounded-2xl border border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
             data-cookie-decline
             type="button"
           >
-            Decline
+            {t.decline}
           </button>
         </div>
       </div>

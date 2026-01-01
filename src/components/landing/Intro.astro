@@ -5,50 +5,83 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import yanaPhoto from "@/images/still-life-glittery-composition-decoration.jpg";
 import arrowIcon from "@/images/right-arrow.png";
+
+const { lang = "en" } = Astro.props;
+const translations = {
+  en: {
+    headline:
+      "Yana Smolnitchi. Sugaring expert, Munich. Client treatments. Professional training. Services and courses with intent.",
+    ctaSugaring: "Get Sugared",
+    ctaCourses: "Learn Sugaring",
+    marquee:
+      "Sugar Rituals • Skin-Soft Results • Munich Atelier • Professional Training •",
+  },
+  de: {
+    headline:
+      "Yana Smolnitchi. Sugaring-Expertin, München. Behandlungen für Kundinnen. Professionelle Schulungen. Services und Kurse mit Anspruch.",
+    ctaSugaring: "Sugaring buchen",
+    ctaCourses: "Sugaring lernen",
+    marquee:
+      "Sugaring-Rituale • Seidig glatte Haut • Atelier in München • Profi-Training •",
+  },
+  ru: {
+    headline:
+      "Яна Смольнички. Эксперт по шугарингу, Мюнхен. Процедуры для клиентов. Профессиональное обучение. Услуги и курсы с качеством.",
+    ctaSugaring: "Записаться",
+    ctaCourses: "Обучение шугарингу",
+    marquee:
+      "Сахарные ритуалы • Гладкая кожа • Ателье в Мюнхене • Профобучение •",
+  },
+  uk: {
+    headline:
+      "Яна Смольніцькі. Експертка з шугарингу, Мюнхен. Процедури для клієнтів. Професійне навчання. Послуги та курси з якістю.",
+    ctaSugaring: "Записатися",
+    ctaCourses: "Навчання шугарингу",
+    marquee:
+      "Цукрові ритуали • Гладка шкіра • Ательє в Мюнхені • Профнавчання •",
+  },
+};
+const t = (key) => translations[lang]?.[key] ?? translations.en[key];
 ---
 
 <section>
-  <Wrapper variant="standard" class="pb-8 pt-24 lg:pt-80">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
-
-      <Image
-        src={yanaPhoto}
-        alt="Yana Smolnitchi"
-        class="size-full aspect-4/5 rounded-2xl object-cover object-center lg:aspect-3/2"
-        loading="lazy"
-        decoding="async"
-      />
-
-      <div
+  <Wrapper variant="standard" class="pb-8 pt-12 lg:pt-48">
+    <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8 lg:gap-x-10 lg:items-center">
+      <div class="lg:col-span-2">
+        <Image
+          src={yanaPhoto}
+          alt="Yana Smolnitchi"
+          class="size-full aspect-4/5 rounded-2xl object-cover object-center lg:aspect-4/3"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="lg:hidden">
+        <div
           class="overflow-hidden rounded-4xl bg-white/70 py-3 text-sm uppercase tracking-[3px] text-base-700 dark:bg-base-950/70 dark:text-base-200"
         >
           <div class="flex min-w-full animate-marquee gap-8 whitespace-nowrap px-6">
-            <span>
-              Sugar Rituals • Skin-Soft Results • Munich Atelier •
-              Professional Training •
-            </span>
-            <span>
-              Sugar Rituals • Skin-Soft Results • Munich Atelier •
-              Professional Training •
-            </span>
+            <span>{t("marquee")}</span>
+            <span>{t("marquee")}</span>
           </div>
         </div>
+      </div>
 
-      <Text
-        tag="h1"
-        variant="displayLG"
-        class="font-semibold leading-tight text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white lg:col-start-3"
-      >
-        Yana Smolnitchi. Sugaring expert, Munich. Client treatments. Professional training. Services and courses with intent.
-      </Text>
+      <div class="lg:col-span-2 lg:flex lg:flex-col lg:items-start">
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="font-semibold leading-tight text-left tracking-tighter text-base-900 dark:text-white"
+        >
+          {t("headline")}
+        </Text>
 
-      <div class="lg:col-span-2">
-        <div class="flex flex-col gap-3">
+        <div class="mt-6 flex flex-col gap-3 lg:w-full lg:max-w-sm">
           <a
-            href="/sugaring"
+            href={`/sugaring?lang=${lang}`}
             class="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-light uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
           >
-            Get Sugared
+            {t("ctaSugaring")}
             <Image
               src={arrowIcon}
               alt=""
@@ -59,10 +92,10 @@ import arrowIcon from "@/images/right-arrow.png";
             />
           </a>
           <a
-            href="/courses"
+            href={`/courses?lang=${lang}`}
             class="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-light uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
           >
-            Learn Sugaring
+            {t("ctaCourses")}
             <Image
               src={arrowIcon}
               alt=""
@@ -73,20 +106,16 @@ import arrowIcon from "@/images/right-arrow.png";
             />
           </a>
         </div>
-        <!--div
+      </div>
+      <div class="hidden lg:block lg:col-span-4">
+        <div
           class="mt-8 overflow-hidden rounded-4xl bg-white/70 py-3 text-sm uppercase tracking-[3px] text-base-700 dark:bg-base-950/70 dark:text-base-200"
         >
           <div class="flex min-w-full animate-marquee gap-8 whitespace-nowrap px-6">
-            <span>
-              Sugar Rituals • Skin-Soft Results • Munich Atelier •
-              Professional Training •
-            </span>
-            <span>
-              Sugar Rituals • Skin-Soft Results • Munich Atelier •
-              Professional Training •
-            </span>
+            <span>{t("marquee")}</span>
+            <span>{t("marquee")}</span>
           </div>
-        </div-->
+        </div>
       </div>
     </div>
   </Wrapper>

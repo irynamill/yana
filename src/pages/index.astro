@@ -7,10 +7,13 @@ import Work from "@/components/landing/Work.astro";
 import Projects from "@/components/landing/Projects.astro";
 import Education from "@/components/landing/Education.astro";
 import Speaking from "@/components/landing/Speaking.astro";
+
+export const prerender = false;
+const lang = Astro.url.searchParams.get("lang") ?? "en";
 ---
 
 <BaseLayout>
-  <Intro />
+  <Intro lang={lang} />
   <!--Work /-->
   <!--Projects /-->
   <!--Education /-->
