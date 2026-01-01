@@ -1,0 +1,249 @@
+---
+// Fundation
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Assets
+import { Image } from "astro:assets";
+import courseHero from "@/images/portrait-confident-young-woman-smiling.jpg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-8 pt-24 lg:pt-80">
+      <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8 lg:gap-x-10 lg:items-center">
+        <div class="lg:col-span-2">
+          <Image
+            src={courseHero}
+            alt="Sugaring course in a calm studio"
+            class="size-full aspect-4/5 rounded-2xl object-cover object-center lg:aspect-4/3"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="lg:col-span-2 flex flex-col lg:justify-center">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="font-semibold leading-tight text-left tracking-tighter text-base-900 dark:text-white"
+          >
+            Learn sugaring in Munich. Beginner-friendly, hands-on, and built for
+            confident results.
+          </Text>
+          <div class="mt-6 flex flex-col gap-3">
+            <a
+              href="/courses#book"
+              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
+            >
+              Book a course
+              <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+            <a
+              href="/courses#program"
+              class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-base-300 px-5 py-4 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-all hover:border-base-900 hover:bg-base-900 hover:text-white dark:border-base-700 dark:text-white dark:hover:border-base-300 dark:hover:bg-base-300 dark:hover:text-base-950"
+            >
+              View program
+              <span class="inline-block h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section id="program">
+    <Wrapper variant="standard" class="py-12 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          [ Course ]
+        </Text>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
+        >
+          Two-day sugaring course
+        </Text>
+
+        <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
+          <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300 lg:col-span-2">
+            Sugar paste + hot wax. Core theory with intensive hands-on practice on
+            models. A confident start for beginners who want real results.
+          </Text>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:col-span-3 lg:col-start-2">
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Day 1 — theory + practice
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            – skin structure and hair types
+            <br />
+            – growth phases and hair anatomy
+            <br />
+            – materials, techniques, prep, and aftercare
+            <br />
+            – contraindications and common mistakes to avoid
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-4 text-base-600 dark:text-base-300">
+            Practice:
+            <br />
+            – 2 models: full legs
+            <br />
+            – 2 models: full arms
+            <br />
+            – 2 models: underarms
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Day 2 — full practice
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            – 2 models: Brazilian
+            <br />
+            – 2 models: face (upper lip, chin, cheeks, etc.)
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-4 text-base-600 dark:text-base-300">
+            индивидуальное сопровождение после обучения
+            <br />
+            сертификат по окончании курса
+            <br />
+            €600 (individual)
+          </Text>
+        </div>
+      </div>
+
+      </div>
+      
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-12 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          [ Who it’s for ]
+        </Text>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
+        >
+          For beginners who want to become confident professionals.
+        </Text>
+
+        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Beginners
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            Start from zero and build confident technique with supervised
+            practice.
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Up-skill
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            Refine speed, precision, and client comfort with advanced tips.
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Small groups
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            Individual or small-group formats for focused attention.
+          </Text>
+        </div>
+      </div>
+
+      </div>
+    </Wrapper>
+  </section>
+
+  <section id="book">
+    <Wrapper variant="standard" class="py-12 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          [ Booking ]
+        </Text>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
+        >
+          Ready to learn? Reserve your spot.
+        </Text>
+
+        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
+          <div
+            class="lg:col-span-2 overflow-hidden rounded-2xl border border-base-200 dark:border-base-800"
+            data-consent-embed
+            data-embed-src="https://www.openstreetmap.org/export/embed.html?bbox=11.5743659%2C48.1094231%2C11.5823659%2C48.1134231&amp;layer=mapnik&amp;marker=48.1114231%2C11.5783659"
+          >
+            <div class="flex h-72 w-full items-center justify-center bg-base-100 px-6 text-center text-sm text-base-600 dark:bg-base-900 dark:text-base-300">
+              <div class="flex flex-col gap-3">
+                <p>Map is disabled until you accept cookies.</p>
+                <button
+                  class="rounded-2xl border border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-base-900 transition-colors hover:border-base-900 dark:border-base-700 dark:text-white dark:hover:border-base-300"
+                  type="button"
+                  data-consent-open
+                >
+                  Enable map
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+              <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+                Format
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+                Individual or small group
+              </Text>
+            </div>
+            <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+              <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+                Location
+              </Text>
+              <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+                Wirtstraße 34a, Obergiesing, 81539 München
+              </Text>
+            </div>
+            <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+              <Text tag="h3" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+                Contact
+              </Text>
+              <div class="mt-3 flex flex-col gap-3">
+                <a
+                  href="https://wa.me/XXXXXXXXXXX"
+                  class="text-sm font-semibold uppercase tracking-[2px] text-base-900 underline decoration-base-300 underline-offset-4 dark:text-white dark:decoration-base-700"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href="https://www.instagram.com/sugaring_by_jana/"
+                  class="text-sm font-semibold uppercase tracking-[2px] text-base-900 underline decoration-base-300 underline-offset-4 dark:text-white dark:decoration-base-700"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

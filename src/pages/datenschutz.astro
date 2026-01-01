@@ -1,0 +1,84 @@
+---
+// Fundation
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-12 pt-24 lg:pt-80">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-y-8">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          Datenschutz
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
+        >
+          Privacy Policy
+        </Text>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-6">
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Controller
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            [Full legal name]
+            <br />
+            [Street, house number]
+            <br />
+            [Postal code, city]
+            <br />
+            Germany
+            <br />
+            Email: [email address]
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Data Processing
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            This website processes personal data only when necessary. Replace
+            this section with your actual processing activities.
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Third-Party Services
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            This site links to or embeds third-party services (e.g.,
+            OpenStreetMap, Treatwell, WhatsApp, Instagram). When you use these
+            services, data may be transmitted to the respective providers.
+            Replace this section with specific details about the services you
+            use and the legal basis for processing.
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Cookies and Consent
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            This website may use cookies for embedded third-party content.
+            Replace this section with your actual cookie usage and consent
+            handling details.
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Your Rights
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            You may request access, correction, deletion, or restriction of
+            your data. Provide contact details for requests.
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

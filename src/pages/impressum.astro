@@ -1,0 +1,70 @@
+---
+// Fundation
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="pb-12 pt-24 lg:pt-80">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-y-8">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          Impressum
+        </Text>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-semibold leading-tight text-left tracking-tighter lg:col-span-3 text-base-900 dark:text-white"
+        >
+          Legal Notice
+        </Text>
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Business Details
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            [Full legal name]
+            <br />
+            [Business name]
+            <br />
+            [Street, house number]
+            <br />
+            [Postal code, city]
+            <br />
+            Germany
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Contact
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            Email: [email address]
+            <br />
+            Phone: [phone number]
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            Business Form
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            [Sole proprietor / GbR / GmbH]
+          </Text>
+        </div>
+        <div class="rounded-2xl border border-base-200 p-6 dark:border-base-800">
+          <Text tag="h2" variant="textLG" class="font-semibold text-base-900 dark:text-white">
+            VAT ID
+          </Text>
+          <Text tag="p" variant="textSM" class="mt-2 text-base-600 dark:text-base-300">
+            [VAT ID (USt-IdNr.) if applicable]
+          </Text>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
