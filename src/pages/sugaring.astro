@@ -3,13 +3,18 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 // Assets
 import { Image } from "astro:assets";
-import sugaringHero from "@/images/still-life-glittery-composition-decoration.jpg";
+import sugaringHero from "@/images/new/yana.jpeg";
 import afterOne from "@/images/b-after.jpeg";
 import beforeOne from "@/images/b-before.jpeg";
 import afterTwo from "@/images/legs-after.jpg";
 import beforeTwo from "@/images/legs-before.jpg";
 import afterThree from "@/images/b-after.jpeg"; // exchange with p-before
 import beforeThree from "@/images/b-before.jpeg";
+import galleryOne from "@/images/new/IMG_0274.JPG";
+import galleryTwo from "@/images/new/IMG_7055.JPG";
+import galleryThree from "@/images/new/IMG_7077.JPG";
+import galleryFour from "@/images/new/IMG_7089.JPG";
+import galleryFive from "@/images/new/IMG_0001.jpeg"
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -24,7 +29,7 @@ const translations = {
     viewPricing: "View pricing",
     aboutLabel: "About me",
     aboutTitle:
-      "Yana Smolnitchi. A calm, precise approach to sugaring that keeps skin smooth and clients comfortable.",
+      "Jana Sugaring Lab. A calm, precise approach to sugaring that keeps skin smooth and clients comfortable.",
     aboutBody:
       "I focus on gentle technique, clean ingredients, and a quiet, elevated studio experience. Every appointment is tailored to your skin and comfort level.",
     pricingLabel: "Services and pricing",
@@ -86,7 +91,7 @@ const translations = {
     viewPricing: "Preise ansehen",
     aboutLabel: "Über mich",
     aboutTitle:
-      "Yana Smolnitchi. Ein ruhiger, präziser Ansatz für glatte Haut und entspannte Kundinnen.",
+      "Jana Sugaring Lab. Ein ruhiger, präziser Ansatz für glatte Haut und entspannte Kundinnen.",
     aboutBody:
       "Ich arbeite mit sanfter Technik, sauberen Produkten und einer ruhigen Studio-Atmosphäre. Jede Behandlung ist auf Haut und Komfort abgestimmt.",
     pricingLabel: "Leistungen & Preise",
@@ -148,7 +153,7 @@ const translations = {
     viewPricing: "Смотреть цены",
     aboutLabel: "Обо мне",
     aboutTitle:
-      "Яна Смольнички. Спокойный и точный подход для гладкой кожи и комфорта клиента.",
+      "Jana Sugaring Lab. Спокойный и точный подход для гладкой кожи и комфорта клиента.",
     aboutBody:
       "Мягкая техника, чистые материалы и спокойная атмосфера студии. Каждая процедура подбирается под вашу кожу и комфорт.",
     pricingLabel: "Услуги и цены",
@@ -209,7 +214,7 @@ const translations = {
     viewPricing: "Дивитися ціни",
     aboutLabel: "Про мене",
     aboutTitle:
-      "Яна Смольніцькі. Спокійний і точний підхід для гладкої шкіри та комфорту клієнта.",
+      "Jana Sugaring Lab. Спокійний і точний підхід для гладкої шкіри та комфорту клієнта.",
     aboutBody:
       "М’яка техніка, чисті матеріали та спокійна атмосфера студії. Кожна процедура підлаштована під вашу шкіру та комфорт.",
     pricingLabel: "Послуги та ціни",
@@ -334,6 +339,29 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
         </Text>
 
       </div>
+
+      <div class="mt-10">
+        <div class="flex snap-x snap-mandatory gap-1 overflow-x-auto pb-2 scrollbar-hide">
+          {[
+            { img: galleryOne, alt: "Sugaring studio moment 1" },
+            { img: galleryTwo, alt: "Sugaring studio moment 2" },
+            { img: galleryThree, alt: "Sugaring studio moment 3" },
+            { img: galleryFour, alt: "Sugaring studio moment 4" },
+            { img: galleryFive, alt: "Sugaring studio moment 5" },
+          ].map((item) => (
+            <div class="min-w-[60%] snap-center overflow-hidden sm:min-w-[45%] lg:min-w-[30%]">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                class="h-64 w-full object-contain object-center"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
     </Wrapper>
   </section>
 
@@ -421,8 +449,8 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
         >
           {t("beforeAfterTitle")}
         </Text>
-
-        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
+      </div>
+      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
         {[
           { before: beforeOne, after: afterOne, label: t("beforeAfterLabel") },
           { before: beforeTwo, after: afterTwo, label: t("beforeAfterLabel") },
@@ -461,8 +489,6 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
             </div>
           </div>
         ))}
-      </div>
-
       </div>
     </Wrapper>
   </section>
@@ -563,7 +589,7 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
             </Text>
             <div class="mt-3 flex flex-col gap-3">
               <a
-                href="https://wa.me/XXXXXXXXXXX"
+                href="https://wa.me/+4915205924242"
                 class="text-sm font-semibold uppercase tracking-[2px] text-base-900 underline decoration-base-300 underline-offset-4 dark:text-white dark:decoration-base-700"
               >
                 WhatsApp
