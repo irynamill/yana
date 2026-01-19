@@ -8,8 +8,8 @@ import afterOne from "@/images/b-after.jpeg";
 import beforeOne from "@/images/b-before.jpeg";
 import afterTwo from "@/images/legs-after.jpg";
 import beforeTwo from "@/images/legs-before.jpg";
-import afterThree from "@/images/b-after.jpeg"; // exchange with p-before
-import beforeThree from "@/images/b-before.jpeg";
+import afterThree from "@/images/after-C.jpeg"; // exchange with p-before
+import beforeThree from "@/images/before-C.jpeg";
 import galleryOne from "@/images/new/IMG_0274.JPG";
 import galleryTwo from "@/images/new/IMG_7055.JPG";
 import galleryThree from "@/images/new/IMG_7077.JPG";
@@ -35,14 +35,25 @@ const translations = {
     pricingLabel: "Services and pricing",
     pricingTitle: "Clear pricing for the most requested services.",
     services: [
-      { label: "Full legs", price: "€65" },
-      { label: "Lower legs", price: "€45" },
-      { label: "Bikini", price: "€35" },
-      { label: "Brazilian", price: "€55" },
-      { label: "Underarms", price: "€25" },
+      { label: "Underarms", price: "€15" },
+      { label: "Upper arms", price: "€15" },
+      { label: "Lower arms", price: "€15" },
+      { label: "Brazilian", price: "€35" },
+      { label: "Upper lip", price: "€10" },
+      { label: "Bikini & legs", price: "€80" },
+      { label: "Chest", price: "€20" },
+      { label: "Full arms", price: "€30" },
+      { label: "Lower legs", price: "€30" },
+      { label: "Buttocks", price: "€20" },
+      { label: "Full legs", price: "€55" },
+      { label: "Hollywood", price: "€45" },
+      { label: "Bikini, underarms & legs", price: "€100" },
+      { label: "Chin", price: "€15" },
+      { label: "Nose", price: "€15" },
+      { label: "Upper legs", price: "€30" },
     ],
     pricingNote:
-      "Final price may vary by area and hair length. Ask for a custom quote. All prices include VAT unless stated otherwise.",
+      "All prices include VAT unless stated otherwise.",
     cancelNote:
       "Please cancel at least 24 hours in advance to avoid a late cancellation fee.",
     reviewsLabel: "Reviews",
@@ -97,14 +108,25 @@ const translations = {
     pricingLabel: "Leistungen & Preise",
     pricingTitle: "Klare Preise für die beliebtesten Behandlungen.",
     services: [
-      { label: "Beine komplett", price: "€65" },
-      { label: "Unterschenkel", price: "€45" },
-      { label: "Bikini", price: "€35" },
-      { label: "Brazilian", price: "€55" },
-      { label: "Achseln", price: "€25" },
+      { label: "Achseln", price: "€15" },
+      { label: "Oberarme", price: "€15" },
+      { label: "Unterarme", price: "€15" },
+      { label: "Brazilian", price: "€35" },
+      { label: "Oberlippe", price: "€10" },
+      { label: "Bikini & Beine", price: "€80" },
+      { label: "Brust", price: "€20" },
+      { label: "Arme komplett", price: "€30" },
+      { label: "Unterschenkel", price: "€30" },
+      { label: "Po", price: "€20" },
+      { label: "Beine komplett", price: "€55" },
+      { label: "Hollywood", price: "€45" },
+      { label: "Bikini, Achseln & Beine", price: "€100" },
+      { label: "Kinn", price: "€15" },
+      { label: "Nase", price: "€15" },
+      { label: "Oberschenkel", price: "€30" },
     ],
     pricingNote:
-      "Der Endpreis kann je nach Bereich und Haarlänge variieren. Fragen Sie nach einem Angebot. Alle Preise inkl. MwSt., sofern nicht anders angegeben.",
+      "Alle Preise inkl. MwSt., sofern nicht anders angegeben.",
     cancelNote:
       "Bitte mindestens 24 Stunden vorher absagen, sonst fällt eine Ausfallgebühr an.",
     reviewsLabel: "Bewertungen",
@@ -159,14 +181,25 @@ const translations = {
     pricingLabel: "Услуги и цены",
     pricingTitle: "Понятные цены на самые популярные услуги.",
     services: [
-      { label: "Ноги полностью", price: "€65" },
-      { label: "Голени", price: "€45" },
-      { label: "Бикини", price: "€35" },
-      { label: "Глубокое бикини", price: "€55" },
-      { label: "Подмышки", price: "€25" },
+      { label: "Подмышки", price: "€15" },
+      { label: "Плечи (верх)", price: "€15" },
+      { label: "Предплечья", price: "€15" },
+      { label: "Бразильское бикини", price: "€35" },
+      { label: "Верхняя губа", price: "€10" },
+      { label: "Бикини и ноги", price: "€80" },
+      { label: "Грудь", price: "€20" },
+      { label: "Руки полностью", price: "€30" },
+      { label: "Голени", price: "€30" },
+      { label: "Ягодицы", price: "€20" },
+      { label: "Ноги полностью", price: "€55" },
+      { label: "Голливуд", price: "€45" },
+      { label: "Бикини, подмышки и ноги", price: "€100" },
+      { label: "Подбородок", price: "€15" },
+      { label: "Нос", price: "€15" },
+      { label: "Бедра", price: "€30" },
     ],
     pricingNote:
-      "Итоговая цена может зависеть от зоны и длины волос. Уточните стоимость. Все цены включают НДС, если не указано иначе.",
+      "Все цены включают НДС, если не указано иначе.",
     cancelNote:
       "Пожалуйста, отменяйте запись минимум за 24 часа, чтобы избежать штрафа.",
     reviewsLabel: "Отзывы",
@@ -207,7 +240,7 @@ const translations = {
     hoursLabel: "Часы",
     hours: "Вт - Сб, 10:00 - 19:00",
   },
-  uk: {
+  ua: {
     heroTitle:
       "Шугаринг у Мюнхені. Делікатне видалення волосся, гладка шкіра та спокійний догляд.",
     bookSlot: "Записатися",
@@ -220,14 +253,25 @@ const translations = {
     pricingLabel: "Послуги та ціни",
     pricingTitle: "Зрозумілі ціни на найпопулярніші послуги.",
     services: [
-      { label: "Ноги повністю", price: "€65" },
-      { label: "Гомілки", price: "€45" },
-      { label: "Бікіні", price: "€35" },
-      { label: "Бразильське бікіні", price: "€55" },
-      { label: "Пахви", price: "€25" },
+      { label: "Пахви", price: "€15" },
+      { label: "Плечі (верх)", price: "€15" },
+      { label: "Передпліччя", price: "€15" },
+      { label: "Бразильське бікіні", price: "€35" },
+      { label: "Верхня губа", price: "€10" },
+      { label: "Бікіні та ноги", price: "€80" },
+      { label: "Груди", price: "€20" },
+      { label: "Руки повністю", price: "€30" },
+      { label: "Гомілки", price: "€30" },
+      { label: "Сідниці", price: "€20" },
+      { label: "Ноги повністю", price: "€55" },
+      { label: "Голлівуд", price: "€45" },
+      { label: "Бікіні, пахви та ноги", price: "€100" },
+      { label: "Підборіддя", price: "€15" },
+      { label: "Ніс", price: "€15" },
+      { label: "Стегна", price: "€30" },
     ],
     pricingNote:
-      "Кінцева ціна може залежати від зони та довжини волосся. Уточніть вартість. Усі ціни з ПДВ, якщо не зазначено інакше.",
+      "Усі ціни з ПДВ, якщо не зазначено інакше.",
     cancelNote:
       "Будь ласка, скасовуйте запис щонайменше за 24 години, щоб уникнути штрафу.",
     reviewsLabel: "Відгуки",
@@ -338,28 +382,28 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
           {t("aboutBody")}
         </Text>
 
-      </div>
-
-      <div class="mt-10">
-        <div class="flex snap-x snap-mandatory gap-1 overflow-x-auto pb-2 scrollbar-hide">
-          {[
-            { img: galleryOne, alt: "Sugaring studio moment 1" },
-            { img: galleryTwo, alt: "Sugaring studio moment 2" },
-            { img: galleryThree, alt: "Sugaring studio moment 3" },
-            { img: galleryFour, alt: "Sugaring studio moment 4" },
-            { img: galleryFive, alt: "Sugaring studio moment 5" },
-          ].map((item) => (
-            <div class="min-w-[60%] snap-center overflow-hidden sm:min-w-[45%] lg:min-w-[30%]">
-              <Image
-                src={item.img}
-                alt={item.alt}
-                class="h-64 w-full object-contain object-center"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ))}
+        <div class="mt-10 lg:col-span-3 lg:col-start-2">
+          <div class="flex snap-x snap-mandatory gap-1 overflow-x-auto pb-2 scrollbar-hide">
+            {[
+              { img: galleryOne, alt: "Sugaring studio moment 1" },
+              { img: galleryTwo, alt: "Sugaring studio moment 2" },
+              { img: galleryThree, alt: "Sugaring studio moment 3" },
+              { img: galleryFour, alt: "Sugaring studio moment 4" },
+              { img: galleryFive, alt: "Sugaring studio moment 5" },
+            ].map((item) => (
+              <div class="min-w-[60%] snap-center overflow-hidden sm:min-w-[45%] lg:min-w-[30%]">
+                <Image
+                  src={item.img}
+                  alt={item.alt}
+                  class="h-64 w-full object-contain object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
 
     </Wrapper>
@@ -449,46 +493,46 @@ const t = (key) => translations[lang]?.[key] ?? translations.en[key];
         >
           {t("beforeAfterTitle")}
         </Text>
-      </div>
-      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
-        {[
-          { before: beforeOne, after: afterOne, label: t("beforeAfterLabel") },
-          { before: beforeTwo, after: afterTwo, label: t("beforeAfterLabel") },
-          { before: beforeThree, after: afterThree, label: t("beforeAfterLabel") },
-        ].map((item, index) => (
-          <div class="overflow-hidden rounded-2xl border border-base-200 dark:border-base-800">
-            <div class="compare" style="--pos: 50%;">
-              <Image
-                src={item.before}
-                alt={`Before image ${index + 1}`}
-                class="h-56 w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
-              <Image
-                src={item.after}
-                alt={`After image ${index + 1}`}
-                class="after h-56 w-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="handle" aria-hidden="true"></div>
-              <input
-                class="slider"
-                type="range"
-                min="0"
-                max="100"
-                value="50"
-                aria-label={`Before and after slider ${index + 1}`}
-              />
+        <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:col-span-3 lg:col-start-2">
+          {[
+            { before: beforeOne, after: afterOne, label: t("beforeAfterLabel") },
+            { before: beforeTwo, after: afterTwo, label: t("beforeAfterLabel") },
+            { before: beforeThree, after: afterThree, label: t("beforeAfterLabel") },
+          ].map((item, index) => (
+            <div class="overflow-hidden rounded-2xl border border-base-200 dark:border-base-800">
+              <div class="compare" style="--pos: 50%;">
+                <Image
+                  src={item.before}
+                  alt={`Before image ${index + 1}`}
+                  class="h-56 w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <Image
+                  src={item.after}
+                  alt={`After image ${index + 1}`}
+                  class="after h-56 w-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="handle" aria-hidden="true"></div>
+                <input
+                  class="slider"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  aria-label={`Before and after slider ${index + 1}`}
+                />
+              </div>
+              <div class="px-4 py-3">
+                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300">
+                  {item.label}
+                </Text>
+              </div>
             </div>
-            <div class="px-4 py-3">
-              <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300">
-                {item.label}
-              </Text>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Wrapper>
   </section>
